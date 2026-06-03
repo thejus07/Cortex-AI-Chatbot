@@ -1,0 +1,12 @@
+{
+  "token": "8352088674:AAGm5svsh8BSO1Mb9bcmaZXUqKATL6_F4_w",
+  "name": "SolopreneurBot",
+  "vibe": "professional",
+  "leadFields": {
+    "name": true,
+    "email": true,
+    "budget": true,
+    "scope": true
+  },
+  "context": "SERVICES: Premium UI/UX design, custom Figma wireframes, high-converting portfolios, Webflow development, and SaaS interfaces.\nPRICING: Figma design sets start at $1,500. Full-service Webflow custom pages start at $2,500. Hourly rate is $75/hr.\nPORTFOLIO: Designed 20+ successful SaaS interfaces and completed landing pages for top remote startups with 5-star feedback.\nTIMELINE: Ballpark landing page completed in 2 weeks. Comprehensive dashboard designs take 4 weeks."
+}

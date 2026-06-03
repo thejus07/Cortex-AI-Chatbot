@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgenticAI - Freelance Chatbot Setup Agent</title>
+  <meta name="description" content="Set up, customize, test and deploy intelligent context-aware AI chatbots for your freelance service business.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Glowing Mesh Backgrounds -->
+  <div class="glowing-bg-circle bg-purple"></div>
+  <div class="glowing-bg-circle bg-blue"></div>
+
+  <div class="app-container">
+    
+    <!-- LEFT COLUMN: Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <div class="logo-section">
+          <i class="fa-solid fa-robot"></i>
+          <h1>AgenticAI</h1>
+        </div>
+        
+        <nav>
+          <ul class="nav-links">
+            <li>
+              <div class="nav-item active" id="nav-creator" onclick="switchView('creator')">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span>Chatbot Creator</span>
+              </div>
+            </li>
+            <li>
+              <div class="nav-item" id="nav-dashboard" onclick="switchView('dashboard')">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Leads & Stats</span>
+              </div>
+            </li>
+            <li>
+              <div class="nav-item" id="nav-integrations" onclick="switchView('integrations')">
+                <i class="fa-solid fa-plug"></i>
+                <span>Integrations</span>
+              </div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="sidebar-footer">
+        <div class="user-avatar">FS</div>
+        <div class="user-info">
+          <h4>Freelance Service</h4>
+          <p>Online Agent</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- CENTER COLUMN: Active Workspace -->
+    <main class="workspace">
+      
+      <!-- View: Creator Wizard -->
+      <section id="view-creator" class="view-section active">
+        <div class="workspace-header">
+          <h2>AI Chatbot Setup Agent</h2>
+          <p>Deploy a context-aware chatbot on your website or WhatsApp to handle FAQs, capture coordinates, and provide support 24/7.</p>
+        </div>
+        
+        <!-- Step progress indicators -->
+        <div class="steps-container">
+          <div class="step-indicator active" id="step-ind-1">
+            <div class="step-indicator-number">1</div>
+            <span>Bot Identity</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-indicator" id="step-ind-2">
+            <div class="step-indicator-number">2</div>
+            <span>Knowledge Base</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-indicator" id="step-ind-3">
+            <div class="step-indicator-number">3</div>
+            <span>Lead Capture</span>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-indicator" id="step-ind-4">
+            <div class="step-indicator-number">4</div>
+            <span>Deploy</span>
+          </div>
+        </div>
+
+        <!-- Wizard Step Cards -->
+        
+        <!-- Step 1: Identity -->
+        <div class="creator-step-card active" id="step-card-1">
+          <div class="step-title">
+            <h3><i class="fa-solid fa-user-gear"></i> Bot Identity & Personality</h3>
+            <p>Customize how your chatbot looks, speaks, and feels to prospective clients.</p>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bot-name">Chatbot Name</label>
+              <input type="text" id="bot-name" value="SolopreneurBot" placeholder="e.g. Alexis, TechBot">
+            </div>
+            
+            <div class="form-group">
+              <label>Select Avatar Icon</label>
+              <div class="avatar-selector">
+                <span class="avatar-option active" onclick="selectAvatar('🤖', this)">🤖</span>
+                <span class="avatar-option" onclick="selectAvatar('👾', this)">👾</span>
+                <span class="avatar-option" onclick="selectAvatar('🐱', this)">🐱</span>
+                <span class="avatar-option" onclick="selectAvatar('🦊', this)">🦊</span>
+                <span class="avatar-option" onclick="selectAvatar('⭐', this)">⭐</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>Bot Personality & Vibe</label>
+            <div class="vibe-grid">
+              <div class="vibe-card active" onclick="selectVibe('professional', this)">
+                <h4>💼 Professional Guide</h4>
+                <p>Polite, direct, highly structured, and business-focused. Best for agency workflows.</p>
+              </div>
+              <div class="vibe-card" onclick="selectVibe('friendly', this)">
+                <h4>✨ Friendly Pal</h4>
+                <p>Cheerful, uses emojis, extremely approachable, warm, and highly engaging.</p>
+              </div>
+              <div class="vibe-card" onclick="selectVibe('hustler', this)">
+                <h4>🚀 Creative Hustler</h4>
+                <p>Charismatic, conversational closer, focuses on speed, action, and results.</p>
+              </div>
+              <div class="vibe-card" onclick="selectVibe('technical', this)">
+                <h4>🧠 Technical Expert</h4>
+                <p>Geeky, detail-oriented, precise, shares technical context, speaks architecture.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2: Knowledge Base -->
+        <div class="creator-step-card" id="step-card-2">
+          <div class="step-title">
+            <h3><i class="fa-solid fa-book-open"></i> Knowledge Base & RAG Context</h3>
+            <p>Paste your services, pricing, timeline, and FAQs. The bot will query this context to respond contextually.</p>
+          </div>
+          
+          <div class="form-group">
+            <label>Choose a Template to Pre-fill Context</label>
+            <div class="template-grid">
+              <button class="template-btn" onclick="applyTemplate('developer', this)"><i class="fa-solid fa-code"></i> Developer</button>
+              <button class="template-btn" onclick="applyTemplate('designer', this)"><i class="fa-solid fa-palette"></i> Designer</button>
+              <button class="template-btn" onclick="applyTemplate('copywriter', this)"><i class="fa-solid fa-pen-nib"></i> Copywriter</button>
+              <button class="template-btn" onclick="applyTemplate('seo', this)"><i class="fa-solid fa-magnifying-glass"></i> SEO Expert</button>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="knowledge-base-context">Custom Knowledge Context</label>
+            <textarea id="knowledge-base-context" rows="8" placeholder="Enter custom facts, portfolio links, pricing tables, or frequently asked questions..."></textarea>
+          </div>
+        </div>
+
+        <!-- Step 3: Lead Capture Settings -->
+        <div class="creator-step-card" id="step-card-3">
+          <div class="step-title">
+            <h3><i class="fa-solid fa-bullseye"></i> Lead Capture Settings</h3>
+            <p>Determine what information the chatbot should capture from clients when they show hiring interest.</p>
+          </div>
+          
+          <div class="lead-fields-grid">
+            <div class="lead-checkbox-card" onclick="toggleLeadField('name')">
+              <div class="lead-checkbox-info">
+                <i class="fa-solid fa-id-card"></i>
+                <div class="lead-checkbox-text">
+                  <h4>Client's Name</h4>
+                  <p>Inquires about client's identity / company representative name.</p>
+                </div>
+              </div>
+              <label class="switch" onclick="event.stopPropagation()">
+                <input type="checkbox" id="lead-name" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="lead-checkbox-card" onclick="toggleLeadField('email')">
+              <div class="lead-checkbox-info">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="lead-checkbox-text">
+                  <h4>Email Address</h4>
+                  <p>Asks for client's business email for direct follow-ups.</p>
+                </div>
+              </div>
+              <label class="switch" onclick="event.stopPropagation()">
+                <input type="checkbox" id="lead-email" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="lead-checkbox-card" onclick="toggleLeadField('budget')">
+              <div class="lead-checkbox-info">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <div class="lead-checkbox-text">
+                  <h4>Project Budget</h4>
+                  <p>Queries estimated budget coordinates to filter premium leads.</p>
+                </div>
+              </div>
+              <label class="switch" onclick="event.stopPropagation()">
+                <input type="checkbox" id="lead-budget" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div class="lead-checkbox-card" onclick="toggleLeadField('scope')">
+              <div class="lead-checkbox-info">
+                <i class="fa-solid fa-file-contract"></i>
+                <div class="lead-checkbox-text">
+                  <h4>Project Scope & Details</h4>
+                  <p>Prompts the client to write a brief summary of their requirements.</p>
+                </div>
+              </div>
+              <label class="switch" onclick="event.stopPropagation()">
+                <input type="checkbox" id="lead-scope" checked>
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: DevOps deploy -->
+        <div class="creator-step-card" id="step-card-4">
+          <div class="step-title">
+            <h3><i class="fa-solid fa-circle-nodes"></i> DevOps Deployment Panel</h3>
+            <p>Compile vectors, register webhooks, and deploy your custom chatbot instance.</p>
+          </div>
+          
+          <div class="deploy-box">
+            <div class="form-group">
+              <label>Select Primary Deployment Channel</label>
+              <div class="channel-selector">
+                <div class="channel-card active" onclick="selectChannel('widget', this)">
+                  <i class="fa-solid fa-code"></i>
+                  <span>Web Widget</span>
+                </div>
+                <div class="channel-card" onclick="selectChannel('whatsapp', this)">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>WhatsApp API</span>
+                </div>
+                <div class="channel-card" onclick="selectChannel('telegram', this)">
+                  <i class="fa-brands fa-telegram"></i>
+                  <span>Telegram Bot</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="btn-deploy-inline" onclick="triggerDeployment()" style="width: 100%; justify-content: center; padding: 14px; font-size: 15px; margin-bottom: 16px; border: 1px solid var(--accent-purple); box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);">
+              <i class="fa-solid fa-cloud-arrow-up"></i> Deploy Chatbot 🚀
+            </button>
+
+            <div class="form-group">
+              <label>Deployment Pipeline Agent Terminal</label>
+              <div class="terminal-console" id="deploy-terminal">
+                <div class="terminal-line header">=== AGENTIC DEPLOYMENT SYSTEM v1.0.0 ===</div>
+                <div class="terminal-line">System status: IDLE</div>
+                <div class="terminal-line">Ready to deploy customized instance. Click 'Deploy Chatbot' to trigger pipeline.</div>
+              </div>
+            </div>
+
+            <div class="deployment-snippet-box" id="deployment-snippet-box">
+              <button class="copy-btn" onclick="copySnippet()"><i class="fa-regular fa-copy"></i> Copy Code</button>
+              <pre><code id="snippet-code">&lt;!-- AgenticAI Loader --&gt;
+&lt;script src="https://cdn.agentic.ai/widget.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  AgenticAI.init({
+    botId: "bot_fl_9281a8b1",
+    name: "SolopreneurBot",
+    vibe: "professional"
+  });
+&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wizard Buttons -->
+        <div class="wizard-footer">
+          <button class="btn btn-secondary" id="btn-back" onclick="navigateStep(-1)" disabled>
+            <i class="fa-solid fa-arrow-left"></i> Back
+          </button>
+          <button class="btn btn-primary" id="btn-next" onclick="navigateStep(1)">
+            Next <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- View: Leads Dashboard -->
+      <section id="view-dashboard" class="view-section">
+        <div class="workspace-header">
+          <h2>Leads & Analytics Dashboard</h2>
+          <p>Review insights, key metrics, and structured project coordinates captured by your chatbot.</p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-info">
+              <h5>Simulated Leads</h5>
+              <h3 id="stat-leads-count">0</h3>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <div class="stat-info">
+              <h5>Bot Accuracy</h5>
+              <h3>96.4%</h3>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="stat-info">
+              <h5>Active Deployments</h5>
+              <h3 id="stat-active-deploys">1</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="leads-table-container">
+          <div class="leads-header">
+            <h3>Captured Project Leads</h3>
+            <button class="btn btn-secondary" style="padding: 8px 16px; font-size: 12px;" onclick="exportLeads()">
+              <i class="fa-solid fa-file-arrow-down"></i> Export Leads (JSON)
+            </button>
+          </div>
+          
+          <div class="leads-table-wrapper">
+            <table id="leads-table">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Contact Details</th>
+                  <th>Budget</th>
+                  <th>Project Requirements / Scope</th>
+                  <th>Source Channel</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody id="leads-table-body">
+                <!-- Data will be loaded via script -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- View: Integrations -->
+      <section id="view-integrations" class="view-section">
+        <div class="workspace-header">
+          <h2>API & Connectors</h2>
+          <p>Integrate your context-aware chatbot seamlessly with high-utility business platforms.</p>
+        </div>
+
+        <div class="integrations-grid">
+          
+          <!-- Web Widget Card -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="integration-meta">
+                <i class="fa-solid fa-code"></i>
+                <div class="integration-title">
+                  <h3>Web Embed Widget</h3>
+                  <p>v1.4.2 (Official)</p>
+                </div>
+              </div>
+            </div>
+            <div class="integration-body">
+              <p>Add a beautiful bubble widget in the corner of your freelance portfolio or website. Completely matches your customized branding, colors, and layout tokens.</p>
+            </div>
+            <div class="integration-footer">
+              <div class="integration-status connected">
+                <div class="dot"></div>
+                <span>Connected</span>
+              </div>
+              <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 11px;" onclick="switchView('creator'); navigateStep(4 - currentStep);">Get Embed Code</button>
+            </div>
+          </div>
+
+          <!-- WhatsApp API Card -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="integration-meta">
+                <i class="fa-brands fa-whatsapp"></i>
+                <div class="integration-title">
+                  <h3>WhatsApp Cloud API</h3>
+                  <p>v2.1.0 (Official)</p>
+                </div>
+              </div>
+            </div>
+            <div class="integration-body">
+              <p>Connect your chatbot to a WhatsApp Business account. Handle client FAQs, capture details, and book consultation calls directly over popular messaging flows.</p>
+            </div>
+            <div class="integration-footer">
+              <div class="integration-status" id="integration-status-whatsapp">
+                <div class="dot"></div>
+                <span id="integration-text-whatsapp">Disconnected</span>
+              </div>
+              <button class="btn btn-primary" style="padding: 6px 12px; font-size: 11px; background: var(--bg-tertiary); border: 1px solid var(--border-color); color: var(--text-primary); box-shadow: none;" id="btn-whatsapp-connect" onclick="connectWhatsApp()">Setup API</button>
+            </div>
+          </div>
+
+          <!-- Telegram Bot Card -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="integration-meta">
+                <i class="fa-brands fa-telegram"></i>
+                <div class="integration-title">
+                  <h3>Telegram Bot API</h3>
+                  <p>v1.0.5 (Official)</p>
+                </div>
+              </div>
+            </div>
+            <div class="integration-body">
+              <p>Create a dedicated Telegram bot instance using BotFather credentials. Directly respond to client questions, support requests, and collect potential leads.</p>
+            </div>
+            <div class="integration-footer">
+              <div class="integration-status" id="integration-status-telegram">
+                <div class="dot"></div>
+                <span id="integration-text-telegram">Disconnected</span>
+              </div>
+              <button class="btn btn-primary" style="padding: 6px 12px; font-size: 11px; background: var(--bg-tertiary); border: 1px solid var(--border-color); color: var(--text-primary); box-shadow: none;" id="btn-telegram-connect" onclick="connectTelegram()">Setup Bot</button>
+            </div>
+          </div>
+
+          <!-- Email Alerts Card -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="integration-meta">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="integration-title">
+                  <h3>Instant Email Alerts</h3>
+                  <p>Internal Utility</p>
+                </div>
+              </div>
+            </div>
+            <div class="integration-body">
+              <p>Receive rich email alerts containing complete client profiles, budgets, and project scopes immediately after a successful chatbot lead capture flow.</p>
+            </div>
+            <div class="integration-footer">
+              <div class="integration-status connected">
+                <div class="dot"></div>
+                <span>Active</span>
+              </div>
+              <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 11px; opacity: 0.5; cursor: not-allowed;" disabled>Configured</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <!-- RIGHT COLUMN: Live Chat Preview / Sandbox -->
+    <aside class="chat-preview-panel">
+      <div class="preview-header">
+        <h3><i class="fa-solid fa-vial"></i> Live Agent Sandbox</h3>
+        <p>Chat with your bot in real-time. Make modifications, update the knowledge context, and verify conversational flows instantly.</p>
+      </div>
+
+      <!-- Phone mockup container -->
+      <div class="phone-mockup">
+        
+        <!-- Header -->
+        <div class="phone-header">
+          <div class="phone-bot-avatar" id="preview-avatar">🤖</div>
+          <div class="phone-bot-details">
+            <h4 id="preview-name">SolopreneurBot</h4>
+            <p>Active Now</p>
+          </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="phone-screen" id="preview-chat-screen">
+          <div class="chat-bubble system">
+            ⚙️ Bot re-initialized with <strong>Professional</strong> personality & knowledge base.
+          </div>
+          <div class="chat-bubble bot">
+            Hello! I am your customized AI assistant. How can I help you with our freelance services today? If you'd like to hire us, just let me know!
+          </div>
+        </div>
+
+        <!-- Input Bar -->
+        <form class="phone-input-bar" id="chat-form" onsubmit="handleChatSubmit(event)">
+          <input type="text" class="phone-input" id="chat-input" placeholder="Type a message..." autocomplete="off">
+          <button type="submit" class="phone-send-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="simulator.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
